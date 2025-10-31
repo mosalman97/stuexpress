@@ -28,9 +28,13 @@ const people = [
 	},
 ];
 
+// query handling
+
 app.get("/api", (req, res) => {
-	console.log(req.query);
-	res.json(people);
+	const { age } = req.query;
+	let filterPeople = people;
+	const lastFilter = filterPeople.filter((item) => item.age >= age);
+	console.log(lastFilter, "Filter data");
 });
 
 // query
