@@ -1,4 +1,4 @@
-import express from "express";
+import express, { json } from "express";
 
 const PORT = 8000;
 
@@ -39,8 +39,28 @@ app.get("/api/crypto-name/:curreny", (req, res) => {
 	console.log(req.params);
 });
 // example
-app.get("/api/:category/:type", (req, res) => {
-	console.log(req.params, "NEw paramas ");
+// app.get("/api/:category/:type", (req, res) => {
+// 	console.log(req.params, "NEw paramas ");
+// });
+// example wrong parms errot handling
+app.get("/api/:field/:term", (req, res) => {
+	const allowedFields = ["country", "continent", "industry"];
+	if (!allowedFields.includes(req.params.field.toLowerCase())) {
+		res.status(400).json({
+			success: false,
+			message:
+				"search field is not allowed  please use only  country,continent,industry ",
+		});
+	} else {
+		res.status(200).json({
+			success: true,
+			messge: "get data successfullyyyyu",
+			data: {
+				terms: req.params.term,
+				field: req.params.field,
+			},
+		});
+	}
 });
 
 app.listen(PORT, () => {
