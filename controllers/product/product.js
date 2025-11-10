@@ -166,3 +166,14 @@ export const productFilter = async (req, res) => {
 		});
 	}
 };
+
+export const productTesting = async (req, res) => {
+	try {
+		const { test } = req.products;
+	} catch (error) {
+		res.status(500).json({
+			success: false,
+			message: "Some error occured",
+		});
+	}
+};
