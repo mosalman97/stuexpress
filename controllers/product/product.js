@@ -66,7 +66,7 @@ export const editProduct = async (req, res) => {
 		if (!updateProduct) {
 			return res.status(404).json({
 				success: false,
-				message: "Product not found",
+				message: "this product not found",
 			});
 		}
 		res.status(200).json({
@@ -90,7 +90,7 @@ export const deleteProduct = async (req, res) => {
 		if (!result) {
 			return res.status(404).json({
 				success: false,
-				message: "Product not found",
+				message: "this product not found",
 			});
 		}
 		res.status(200).json({
