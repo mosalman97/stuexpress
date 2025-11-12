@@ -12,6 +12,11 @@ const ProductSchema = mongoose.Schema({
 	stock: {
 		type: Number,
 	},
+	category: {
+		type: String,
+		enum: ["men", "women", "mobile", "dress"],
+		required: true,
+	},
 });
 
 const Product = mongoose.model("Product", ProductSchema);
