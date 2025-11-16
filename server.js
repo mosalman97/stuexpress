@@ -1,5 +1,5 @@
 import express, { json } from "express";
-import { apiRouter } from "./routes/apiRoutes.js";
+// import { apiRouter } from "./routes/apiRoutes.js";
 import { productRoutes } from "./routes/product.js";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
